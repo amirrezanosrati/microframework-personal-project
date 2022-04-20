@@ -18,16 +18,18 @@ class Router
         $this->routes = Route::routes();
         $this->current_route = $this->findRoute($this->request) ?? null;
         $this->run_route_middalerware();
-         var_dump($this->current_route);
+       //  var_dump($this->current_route);
     }
     private function run_route_middalerware()
     {
         $middleware = $this->current_route['middleware'];
+        if (!empty($middleware)) {
         foreach ($middleware as $middleware_class) {
             $middleware_obj = new $middleware_class;
              $middleware_obj->handle();
+             die();
          }
-        die();
+        }
     }
     public function findRoute(Request $request)
     {
