@@ -3,6 +3,8 @@
 
 
 include 'bootstrap/init.php';
+use App\Models\User;
+use App\Models\product;
 
 
 
@@ -12,5 +14,4 @@ include 'bootstrap/init.php';
 
 $router = new \App\Core\Routing\Router();
 $router->run();
-
 
